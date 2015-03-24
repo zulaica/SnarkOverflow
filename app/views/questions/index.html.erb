@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Top questions this week:</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-9">
+    <% if @questions.any? %>
+
+      <ul class="list-unstyled">
+
+        <% @questions.each do |question| %>
+
+          <li>
+            <i class="fa fa-star"></i> <%= link_to question_path(question) do %><%= question.title %><% end %>
+          </li>
+
+        <% end %>
+
+      </ul>
+
+    <% else %>
+      <div class="row">
+        <div class="col-md-12">
+          <p>No questions asked!</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3 right">
+    <% if current_user %>
+      <%= link_to "Ask a Question", new_question_path %>
+    <% else %>
+      <p>Login to contribute</p>
+    <% end %>
+  </div>
+</div>

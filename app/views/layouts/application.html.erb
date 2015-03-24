@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snark Overflow</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1><a href="/">Snark <i class="fa fa-frown-o fa-spin"></i>verflow</a></h1>
+      </div>
+      <div class="col-md-6 right">
+        <p>
+          <i class="fa fa-user"></i>
+          <% if current_user %>
+          <%= link_to "My Profile", user_path(current_user) %>
+          <i class="fa fa-random"></i>
+          <%= link_to session_path(current_user), :data => { :method => :delete } do %>Logout<% end %>
+          <% else %>
+          <%= link_to new_user_path do %>Register<% end %>
+          <i class="fa fa-random"></i>
+          <%= link_to new_session_path do %>Login<% end %>
+          <% end %>
+          <i class="fa fa-github-alt"></i>
+        </p>
+        </div>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 center">
+          <%= flash[:alert] %>
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  </html>

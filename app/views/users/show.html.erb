@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-12">
+      <h4><%= @user.email %></h4>
+      <small>Member since: <%= @user.created_at.to_formatted_s(:long_ordinal) %></small>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <% if @user.questions.any? %>
+    <hr>
+    <% @user.questions.by_date.each do |question| %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h4>
+          <%= link_to question_path(question) do%><%= question.title %><% end %><br>
+          <small>
+            <%= question.created_at.to_formatted_s(:long_ordinal) %>
+          </small>
+        </h4>
+        <small>
+          <p class="right">
+            <% if @user == current_user %>
+              <%= link_to edit_question_path(question) do %><i class="fa fa-cog"></i> Edit Question<% end %> |
+              <%= link_to question_path(question), :data => {:confirm => "Do you really want to delete this question?", :method => "delete"} do %><i class="fa fa-trash-o"></i> Delete Question<% end %>
+            <% end %>
+          </p>
+        </small>
+        <hr>
+      </div>
+    </div>
+    <% end %>
+    <% else %>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <p>No questions asked!</p>
+      </div>
+    </div>
+    <% end %>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 center">
+    <p>
+      <%= link_to "Return Home", users_path %> |
+      <%= link_to edit_user_path(@user) do %><i class="fa fa-cog"></i> Edit Profile<% end %> |
+      <%= link_to user_path(@user), :data => {:confirm => "Do you really want to delete your profile?", :method => "delete"} do %><i class="fa fa-trash-o"></i> Delete Profile<% end %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <hr>
+    <div class="row">
+
+      <div class="col-md-8 col-md-offset-2">
+        <h4>
+          <%= @user.email %> asks:<br>
+          <%= @question.title %><br>
+          <small>
+            <%= @question.created_at.to_formatted_s(:long_ordinal) %>
+          </small>
+        </h4>
+        <h
+        <p>
+          <%= @question.body %>
+        </p>
+        <small>
+          <p class="right">
+            <% if @question.user == current_user %>
+              <%= link_to edit_question_path(@question) do %><i class="fa fa-cog"></i> Edit Question <% end %> |
+              <%= link_to question_path(@question), :data => {:confirm => "Do you really want to delete this question?", :method => "delete"} do %><i class="fa fa-trash-o"></i> Delete Question<% end %>
+            <% else %>
+              <%= link_to new_question_answer_path(@question) do %><i class="fa fa-frown-o fa-spin"></i> Answer this Question <% end %>
+            <% end %>
+          </p>
+        </small>
+
+        <% if @question.answers.any? %>
+        <hr>
+        Answer's;
+          <ul class="list-unstyled">
+            <% @question.answers.each do |answer| %>
+              <li class="well">
+              <p>
+                <%= answer.user.email %> sez:
+              </p>
+                <%= answer.body %>
+                <% if answer.user == current_user %>
+                  <p>
+                    <small>
+                      <%= link_to edit_question_answer_path(answer.question, answer) do %><i class="fa fa-cog"></i> Edit Answer <% end %> |
+                      <%= link_to question_answer_path(answer.question, answer), :data => {:confirm => "Do you really want to delete this question?", :method => "delete"} do %><i class="fa fa-trash-o"></i> Delete Answer<% end %>
+                    </small>
+                  </p>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+</div>

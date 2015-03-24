@@ -1,0 +1,25 @@
+<%= render "layouts/errors", :object => @user %>
+
+<%= form_for @user, :html => { :mulitpart => true} do |f| %>
+<ul class="formList list-unstyled">
+
+  <li>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </li>
+
+  <li>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </li>
+
+  <li>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </li>
+
+  <li class="submit">
+    <%= f.submit "Submit", :class => "btn btn-sm btn-success" %>
+  </li>
+</ul>
+<% end %>

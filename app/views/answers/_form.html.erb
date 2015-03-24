@@ -1,0 +1,15 @@
+<%= render "layouts/errors", :object => @answer %>
+
+<%= form_for [@question, @answer], :html => { :multipart => true } do |f| %>
+<ul class="formList list-unstyled">
+
+  <li>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </li>
+
+  <li class="submit">
+    <%= f.submit "Submit", :class => "btn btn-sm btn-success" %>
+  </li>
+</ul>
+<% end %>
