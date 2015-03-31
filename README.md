@@ -1,17 +1,17 @@
-##Bloggor
+##Snark Overflow
 ---------------------
 
 ##Introduction
 ---------------------
-Bloggor enables one to post blogs on the internet
+SNark Overflow is a site where one can aquire completely unhelpful commentary on their current projects! We try to cultivate an environment of argumentative posturing, with very little meaningful work being done.
 
 ##Requirements
 ---------------------
-To run this you need Ruby on Rails 4 and Postgres installed on your computer.
+To run this you need Ruby on Rails 4 and Postgres installed on your server!
 
 ##Instructions
 ---------------------
-CD into the Bloggor directory and run the following commands:
+CD into the SnarkOverflow directory and run the following commands:
 
 ```
 $ bundle
@@ -24,15 +24,18 @@ Now open a browser and go to localhost:3000 and you are blogging in style, my fr
 
 ##Maintainer
 ---------------------
-Dexter Fitch
+David Zulaica  
+zulaica.info
+
+Dexter Fitch  
 github.com/dexterfitch
 
-Dan Wright
+Dan Wright  
 danwright.co  
 
 ##Copyright
 ---------------------
-2015 Dan Wright
+2015 Internet(s)
 
 
 ##License

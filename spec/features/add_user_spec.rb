@@ -1,6 +1,12 @@
-describe "The blog creating and viewing process" do
+require "rails_helper"
 
-  it "will allow user to be created" do
-    user = FactoryGirl.create(:user, :email, :password, :password_confirmation)
+describe "The blog creating and viewing process" do
+  it "will allow user to be created", js: true do
+    visit new_user_path
+    fill_in "Email", :with => "user"
+    fill_in "Password", :with => "password"
+    fill_in "Password confirmation", :with => "password"
+    click_on "Submit"
+    expect(page).to have_content "Welcome"
   end
 end
