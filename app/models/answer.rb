@@ -6,7 +6,7 @@ class Answer < ActiveRecord::Base
   belongs_to :user
 
   validates :body, :presence => true
-  validates :user_id, :presence => true
+  # validates :user_id, :presence => true
   validates :question_id, :presence => true
 
   scope :by_date, -> { order(created_at: :desc) }

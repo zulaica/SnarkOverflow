@@ -6,7 +6,7 @@
 
       <div class="col-md-8 col-md-offset-2">
         <h4>
-          <%= @user.email %> asks:<br>
+          <%= @question.user.email %> asks:<br>
           <%= @question.title %><br>
           <small>
             <%= @question.created_at.to_formatted_s(:long_ordinal) %>

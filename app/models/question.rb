@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :body, :presence => true
-  validates :user_id, :presence => true
+  # validates :user_id, :presence => true
 
   scope :by_date, -> { order(created_at: :desc) }
 

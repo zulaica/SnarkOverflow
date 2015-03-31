@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "The blog creating and viewing process" do
+describe "The account creating and viewing process" do
   it "will allow user to be created", js: true do
     visit new_user_path
     fill_in "Email", :with => "user"

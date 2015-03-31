@@ -1,23 +1,20 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
-    render :index
   end
 
   def show
     @question = Question.find(params[:id])
-    @user = User.find(@question.user_id)
-    render :show
+    # @user = User.find(@question.user_id)
   end
 
   def new
     @question = Question.new
-    render :new
   end
 
   def create
-    @question = Question.new(questions_params)
-    @question.user_id = current_user.id
+    @question = current_user.questions.new(questions_params)
+    # @question.user_id = current_user.id
     if @question.save
       redirect_to questions_path
     else

@@ -26,7 +26,8 @@ group :test, :development do
   gem 'pry'
   gem 'launchy'
   gem 'poltergeist'
-  # save_and_open_page - triggers launchy. Insert before expect/should line in capybara spec methods.
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 group :test do
