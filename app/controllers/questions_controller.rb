@@ -5,7 +5,10 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    # @user = User.find(@question.user_id)
+    respond_to do |format|
+      format.html { redirect_to questions_path }
+      format.js
+    end
   end
 
   def new
@@ -14,7 +17,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.new(questions_params)
-    # @question.user_id = current_user.id
     if @question.save
       redirect_to questions_path
     else
